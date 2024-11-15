@@ -12,7 +12,7 @@ const ModalInterface = ({children, clickFunction}:propsType) =>{
             {/* The click function below is the function we passed this component
                 to close the particular modal. */}
             <section onClick={clickFunction} className=" flex items-center justify-center w-full h-screen absolute bg-[#00000087] ">
-                <div className=" bg-white max-sm:w-full m-5 rounded-md ">
+                <div className=" bg-white max-sm:w-full w-[450px] m-5 rounded-md ">
                     {
                         children
                     }
