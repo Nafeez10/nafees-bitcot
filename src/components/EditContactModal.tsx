@@ -20,12 +20,14 @@ const EditContactModal = ({ setShowEditModal, editContactHandeler}:propsType) =>
 
     const editContactModalHandeler = () => setShowEditModal(false);
 
+    // This function is to close the modal if the user clicks outside the form.
     const closeModalhandeler = (e:MouseEvent) =>{
         if(e.target == e.currentTarget){
             setShowEditModal(false);
         }
     }
 
+    // This function is to reset the form.
     const resetHandeler = () =>{
         setEditContactName('')
         setEditContactEmail('')
@@ -33,8 +35,10 @@ const EditContactModal = ({ setShowEditModal, editContactHandeler}:propsType) =>
         setEditContactAddress('')
     }
 
+    // This variable is to check the form is filled or not.
     const isFormFilled = Boolean(editContactName && editContactEmail && editContactMobile);
 
+    // This functionis to submit the form and edit the contact.
     const submitBtnHandeler = (e:any) =>{
         e.preventDefault()
         if(!isFormFilled){

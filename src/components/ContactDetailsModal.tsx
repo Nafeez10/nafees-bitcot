@@ -8,6 +8,7 @@ const ContactDetailsModal = () =>{
 
     const { setShowContactDetailModal, currentShowUserDetail } = useContext(AppContext);
 
+    // This function is to close the modal if the user clicks outside the form.
     const contactDetailModalHandeler = (e:MouseEvent) =>{
 
         if(e.target == e.currentTarget){

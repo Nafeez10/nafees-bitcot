@@ -9,8 +9,15 @@ type propsType = dataType & {
 
 const UserContact = ({ id, name, mobile, email, address, deleteContactHandeler }:propsType) =>{
 
-    const { setShowEditModal, setShowContactDetailModal, setCurrentShowUserDetail, setCurrentContactEdit } = useContext(AppContext);
+    const {
+        setShowEditModal,
+        setShowContactDetailModal,
+        setCurrentShowUserDetail,
+        setCurrentContactEdit
+    } = useContext(AppContext);
 
+    // This function is used to update the edit user details modal with the
+    // clicked user's details
     const editUserHandeler = () =>{
         setCurrentContactEdit({
             id,name,mobile,email,address
@@ -20,6 +27,8 @@ const UserContact = ({ id, name, mobile, email, address, deleteContactHandeler }
         console.log('hi')
     }
 
+    // This function is used to update the show user details modal with the
+    // clicked user's details
     const showUserDetailHandeler = () =>{
         setCurrentShowUserDetail({
             id,name,mobile,email,address

@@ -7,6 +7,8 @@ type propsType = {
     inputType?: string;
 }
 
+// This component is used to avoid repeating the code and to use the component for 
+// the user's input fields.
 const ModalInput = ({ labelName, inputValue, setInputValue, inputType = "text" }:propsType) =>{
 
     const setInputHandeler = (e:ChangeEvent<HTMLInputElement>) => setInputValue(e.target.value)

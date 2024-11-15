@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { dataType } from "../App";
 
-
-
+// This is a custom hook to fetch the data from the api.
 const useFetchData = (url:string) =>{
 
     const [ data, setData ] = useState<dataType[]>([]);

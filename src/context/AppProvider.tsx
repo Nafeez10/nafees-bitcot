@@ -27,6 +27,7 @@ const initContetxt : initContextType = {
     setCurrentContactEdit: ()=>{}
 }
 
+// This is the context api which i used throughout the app.
 export const AppContext = createContext(initContetxt);
 
 type propsType = {

@@ -7,6 +7,9 @@ import EditContactModal from "./components/EditContactModal";
 import { AppContext } from "./context/AppProvider";
 import ContactDetailsModal from "./components/ContactDetailsModal";
 
+// This is the data that comes from the api but the address property is added locally 
+// because we use address property in this app and api doesn't provide the property so
+// i added it locally.
 export type dataType = {
     id: number;
     name: string;
@@ -25,9 +28,9 @@ function App() {
 
     const { showEditModal, setShowEditModal, showContactDetailModal, showAddContact, setShowAddContact } = useContext(AppContext);
     
-    
     useEffect(()=>{
         if(!isLoading && !isError){
+            // This is to transform the api's data by adding the address property in it.
             const temp = data.map( contact => ({...contact, address:""}));
 
             setContacts(temp);
@@ -35,7 +38,9 @@ function App() {
         }
     },[data])   
 
+    console.log(displayContacts)
 
+    // This function runs the code to add a new contact.
     const addContactHandeler = (name:string, mobile:string, email:string, address:string) =>{
         const newContact = {
             id: contacts.length ? contacts[contacts.length - 1].id + 1 : 1,
@@ -59,6 +64,7 @@ function App() {
 
     }
 
+    // This function runs the code to edit the existing contact.
     const editContactHandeler = ( id:number, name:string, mobile: string, email:string, address:string) =>{
         
         const temp = contacts.map( contact => {
@@ -94,6 +100,14 @@ function App() {
 
     }
 
+    const loadingElement = (
+        <p className="text-center text-white mt-10">Loading...</p>
+    )
+
+    const errorElement = (
+        <p className="text-center text-white mt-10">Something went wrong!</p>
+    )
+
     return (
         <>
             {showAddContact && <AddContactModal addContactHandeler={addContactHandeler} setShowAddContact={setShowAddContact} />}
@@ -111,6 +125,8 @@ function App() {
                         setShowAddContact={setShowAddContact}
                     />
                 </header>
+                {isLoading ? loadingElement : <></>}
+                {isError ? errorElement : <></>}
                 <section className="">
                     <ContactsView
                         searchContact={searchContact}

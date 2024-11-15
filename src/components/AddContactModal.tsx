@@ -25,14 +25,15 @@ const AddContactModal = ({ setShowAddContact, addContactHandeler }:propsType) =>
 
     const isFormFilled = Boolean(contactName && contactEmail && contactMobile && contactAddress);
 
-
+    // This functions resets the form.
     const resetHandeler = () =>{
         setContactName('')
         setContactEmail('')
         setContactMobile('')
         setContactAddress('')
     }
-    
+
+    // This function performs the add new contact operation.
     const submitBtnHandeler = (e:any) =>{
         e.preventDefault()
 
@@ -47,6 +48,8 @@ const AddContactModal = ({ setShowAddContact, addContactHandeler }:propsType) =>
 
     return(
         <>
+            {/* The below component is a wrapper modal component which i created
+                to avoid repeating the code. */}
             <ModalInterface clickFunction={closeModalhandeler}>
                 <>
                     <div className=" flex items-center p-4 justify-between border-b-2">

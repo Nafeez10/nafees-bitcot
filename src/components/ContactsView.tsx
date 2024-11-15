@@ -13,7 +13,8 @@ type propsType = {
 
 const ContactsView = ({ contacts, setContacts, displayContacts, setDisplayContacts, searchContact, setSearchContact }:propsType) =>{
 
-
+    // This useEffect function filters the data and update the data according to the
+    // user's input.
     useEffect(()=>{
         const temp = contacts.filter( contact =>
             contact.name.toLowerCase().includes(searchContact)
@@ -24,7 +25,7 @@ const ContactsView = ({ contacts, setContacts, displayContacts, setDisplayContac
 
     },[searchContact])
 
-
+    // This function is to delete a contact
     const deleteContactHandeler = (id:number) =>{
         const temp = contacts.filter( contact => contact.id !== id);
         setContacts(temp);
@@ -32,7 +33,6 @@ const ContactsView = ({ contacts, setContacts, displayContacts, setDisplayContac
         const tempDisplay = displayContacts.filter( contact => contact.id !== id);
         setDisplayContacts(tempDisplay);
     }
-
 
     const searchContacthandeler = (e:ChangeEvent<HTMLInputElement>) => setSearchContact(e.target.value)
 
