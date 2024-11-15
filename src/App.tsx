@@ -119,7 +119,7 @@ function App() {
             }
             {showContactDetailModal && <ContactDetailsModal />}
             
-            <main className=" p-2 w-[550px] max-sm:w-full h-screen mx-auto bg-black">
+            <main className=" flex flex-col p-2 w-[550px] max-sm:w-full h-screen mx-auto bg-black">
                 <header className="">
                     <NavBar
                         setShowAddContact={setShowAddContact}
@@ -127,7 +127,7 @@ function App() {
                 </header>
                 {isLoading ? loadingElement : <></>}
                 {isError ? errorElement : <></>}
-                <section className="">
+                <section className=" grow overflow-y-auto">
                     <ContactsView
                         searchContact={searchContact}
                         setSearchContact={setSearchContact}
