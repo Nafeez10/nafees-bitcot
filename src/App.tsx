@@ -80,7 +80,7 @@ function App() {
             return contact
         });
 
-        const tempDisplay = contacts.map( contact => {
+        const tempDisplay = displayContacts.map( contact => {
             if(contact.id == id){
                 return {
                     id,

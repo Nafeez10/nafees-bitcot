@@ -22,8 +22,11 @@ const ContactsView = ({ contacts, setContacts, displayContacts, setDisplayContac
             contact.mobile.includes(searchContact)
         );
         setDisplayContacts(temp);
-
-    },[searchContact])
+        
+        // I've added contacts in the dependency so that it will filter whenever the 
+        // data is edited or added . we can't add displayContacts in the dependency array
+        // if we add that the this useEffect will run infinitely.
+    },[searchContact, contacts]) 
 
     // This function is to delete a contact
     const deleteContactHandeler = (id:number) =>{
