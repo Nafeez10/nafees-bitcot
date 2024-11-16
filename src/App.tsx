@@ -40,7 +40,6 @@ function App() {
         }
     },[data])   
 
-    console.log(displayContacts)
 
     // This function runs the code to add a new contact.
     const addContactHandeler = (name:string, mobile:string, email:string, address:string) =>{
