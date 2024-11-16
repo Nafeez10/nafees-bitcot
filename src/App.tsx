@@ -18,13 +18,15 @@ export type dataType = {
     address: string
 }
 
+const API_URL = "https://raw.githubusercontent.com/BitcotDev/fresher-machin-test/main/json/sample.json"
+
 function App() {
 
     const [ searchContact, setSearchContact ] = useState<string>('');
     const [ contacts, setContacts ] = useState<dataType[]>([]);
     const [ displayContacts, setDisplayContacts ] = useState<dataType[]>(contacts);
     
-    const { data, isLoading, isError } = useFetchData(import.meta.env.VITE_API_KEY);
+    const { data, isLoading, isError } = useFetchData(API_URL);
 
     const { showEditModal, setShowEditModal, showContactDetailModal, showAddContact, setShowAddContact } = useContext(AppContext);
     
